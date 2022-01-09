@@ -74,7 +74,7 @@ video {
   animation: glow 1s ease-in-out infinite alternate;
 }
 
-@-webkit-keyframes glow {
+@keyframes glow {
   from {
     box-shadow: 0 0 5px 2px magenta, 0 0 10px 5px cyan;
   }
