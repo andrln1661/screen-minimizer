@@ -9,15 +9,17 @@
   </head>
   <body>
     <div class="container">
-      <div class="video-container">
-        <video id="videoPlayer" autoplay controls preload="metadata"></video>
-      </div>
+      <video id="videoPlayer" autoplay preload="metadata"></video>
 
       <div class="screen-buttons">
         <button class="screen-button" onclick="chooseScreen()">
           Choose Screen
         </button>
-        <button class="screen-button" onclick="minimizeScreen()">
+        <button
+          class="screen-button"
+          id="minimize-btn"
+          onclick="minimizeScreen()"
+        >
           Minimize Screen
         </button>
       </div>
@@ -25,6 +27,7 @@
 
     <script>
       const videoPlayer = document.querySelector("#videoPlayer");
+      const minimizeButton = document.querySelector("#minimize-btn");
 
       const chooseScreen = async (display) => {
         let stream = null;
@@ -37,6 +40,18 @@
 
         videoPlayer.srcObject = stream;
       };
+
+      minimizeButton.addEventListener("click", async () => {
+        try {
+          if (document.pictureInPictureElement) {
+            await document.exitPictureInPicture();
+          } else {
+            await videoPlayer.requestPictureInPicture();
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      });
     </script>
   </body>
 </html>
