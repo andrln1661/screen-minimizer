@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" onmousemove="mousePosition()" onmouseleave="mouseLeave()">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div class="mouseShadow"></div>
     <div class="container">
       <video id="videoPlayer" autoplay preload="metadata"></video>
 
@@ -25,7 +26,7 @@
       </div>
     </div>
 
-    <script>
+    <script type="text/javascript">
       const videoPlayer = document.querySelector("#videoPlayer");
       const minimizeButton = document.querySelector("#minimize-btn");
 
@@ -52,6 +53,21 @@
           console.log(error);
         }
       });
+
+      const mouseShadow = document.querySelector(".mouseShadow");
+
+      const mousePosition = () => {
+        const event = window.event;
+        const posX = event.clientX;
+        const posY = event.clientY;
+        mouseShadow.style["display"] = "block";
+        mouseShadow.style["top"] = posY + "px";
+        mouseShadow.style["left"] = posX + "px";
+      };
+
+      const mouseLeave = () => {
+        mouseShadow.style["display"] = "none";
+      };
     </script>
   </body>
 </html>
