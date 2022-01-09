@@ -8,11 +8,31 @@ body {
   background: black;
   display: flex;
   z-index: 1;
+  font-family: "Open Sans Condensed", sans-serif;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+header {
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.title {
+  font-size: 50px;
+  color: white;
 }
 
 .container {
   margin: auto;
-  margin-top: 50px;
+  margin-top: 150px;
   width: 80vw;
   max-width: 1200px;
   height: 80vh;
@@ -52,12 +72,12 @@ video {
   color: white;
   border: 1px solid white;
   font-size: 25px;
-  font-weight: 600;
-  letter-spacing: 2px;
   padding: 5px;
+  z-index: 1;
   font-family: "Open Sans Condensed", sans-serif;
   text-transform: uppercase;
-  z-index: 1;
+  font-weight: 600;
+  letter-spacing: 2px;
 }
 
 .screen-button:hover {
