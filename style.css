@@ -102,3 +102,10 @@ video {
     box-shadow: 0 0 10px 4px magenta, 0 0 20px 10px cyan;
   }
 }
+
+@media (max-width: 768px) {
+  .screen-button {
+    width: 120px;
+    font-size: 20px;
+  }
+}
